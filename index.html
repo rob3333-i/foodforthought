@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Will You Be My Valentine?</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+    }
+
+    .card {
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      max-width: 350px;
+    }
+
+    h1 {
+      color: #e60073;
+    }
+
+    button {
+      font-size: 18px;
+      padding: 10px 20px;
+      margin: 10px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    #yesBtn {
+      background-color: #ff4d6d;
+      color: white;
+    }
+
+    #noBtn {
+      background-color: #ddd;
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h1 id="question">Will you be my Valentine? 💖</h1>
+
+    <div id="buttons">
+      <button id="yesBtn">Yes 💘</button>
+      <button id="noBtn">No 🙃</button>
+    </div>
+
+    <h2 id="response" class="hidden">
+      YAY!! ❤️🥰  
+      <br><br>
+      I knew you’d say yes 😘
+    </h2>
+  </div>
+
+  <script>
+    const noTexts = [
+      "Are you sure? 🥺",
+      "Really sure?? 😢",
+      "Think again 💔",
+      "Come on 😭",
+      "You’re breaking my heart 💘"
+    ];
+
+    let noCount = 0;
+
+    const yesBtn = document.getElementById("yesBtn");
+    const noBtn = document.getElementById("noBtn");
+    const question = document.getElementById("question");
+    const response = document.getElementById("response");
+    const buttons = document.getElementById("buttons");
+
+    yesBtn.onclick = () => {
+      question.classList.add("hidden");
+      buttons.classList.add("hidden");
+      response.classList.remove("hidden");
+    };
+
+    noBtn.onclick = () => {
+      noBtn.textContent = noTexts[Math.min(noCount, noTexts.length - 1)];
+      noCount++;
+      yesBtn.style.fontSize = `${18 + noCount * 5}px`;
+    };
+  </script>
+
+</body>
+</html>
