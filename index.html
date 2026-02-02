@@ -60,11 +60,7 @@
       <button id="noBtn">No 🙃</button>
     </div>
 
-    <h2 id="response" class="hidden">
-      YAY!! ❤️🥰  
-      <br><br>
-      I knew you’d say yes 😘
-    </h2>
+    <h2 id="response" class="hidden"></h2>
   </div>
 
   <script>
@@ -88,6 +84,15 @@
       question.classList.add("hidden");
       buttons.classList.add("hidden");
       response.classList.remove("hidden");
+      response.innerHTML = `
+        Yay!! ❤️🥰<br><br>
+        Text me with which you want:<br>
+        - Nobu dinner<br>
+        - Birkin Bag<br>
+        - Restaurant of your choice<br>
+        - Maccas<br>
+        - Day out in the city
+      `;
     };
 
     noBtn.onclick = () => {
